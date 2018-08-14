@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head >  
+    <title></title>  
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+        
+        <link rel="stylesheet" href="mystyle.css" />  
+  
+</head> 
+<body ng-app="student">  
+  
+    <div  ng-controller="studentController"  ui-view="">  
+  
+        <h1 class="app-title">student detail</h1>  
+   
+  <!-- <script>src="app.js"</script> -->
+        <form name="frm">  
+            <table>  
+                <tr>  
+                    <td> No   :  
+  
+                    </td>  
+                    <td>  
+                        <input type="number" name="no" ng-model="no" required><br />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td> Name   :  
+  
+                    </td>  
+                    <td>  
+                        <input type="text" name="Name" ng-model="Name" required>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td>Email   :  
+  
+                    </td>  
+                    <td>  
+                        <input type="text" name="email" ng-model="email">  
+                    </td>  
+                </tr>  
+				 <tr>  
+                    <td>Age   :  
+  
+                    </td>  
+                    <td>  
+                        <input type="number" name="age" ng-model="age">  
+                    </td>  
+                </tr>  
+				 <tr>  
+                    <td>Address   :  
+  
+                    </td>  
+                    <td>  
+                        <input type="text" name="address" ng-model="address">  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td colspan="2" align="right">  
+  
+                        <button ng-click="addstudent()" ng-disabled="frm.$invalid" class="button">Save</button>  
+                    </td>  
+  
+                </tr>  
+            </table>  
+        </form>  
+        <table cellpadding="4" cellspacing="4" border="1" style="border-collapse: collapse; border: solid 1px #000" class="table">  
+            <tr>  
+                <td><b> No</b></td>  
+                <td><b> Name</b></td>  
+                <td><b>Email</b></td>  
+				<td><b>age</b></td>  
+				<td><b>address</b></td>  
+                <td><b>Action</b></td>  
+            </tr>  
+            <!-- <tr>
+                <td>{{student}}</td>
+            </tr> -->
+            <tr ng-repeat="studentList in student">  
+                {{studentList}}
+                <td>{{ studentList.no }}  
+                </td>  
+                <td>{{ studentList.name }}  
+                </td>  
+                <td>{{ studentList.email }}  
+                </td>  
+				<td>{{ studentList.age }}  
+                </td>
+				<td>{{ studentList.address }}  
+                </td>  				
+                <td>  
+                    <button ng-click="deleteStudent(student)">Delete</button>  
+  
+                </td>  
+            </tr>  
+  
+        </table>  
+        <div>Total student : {{count}}</div>  
+         
+
+
+         <div>
+             <button type="button" ng-click="navigate();">Navigate To Student via $state</button>
+         </div>
+
+
+         <br /><br/>
+         <a ui-sref="student">Navigate to student via ui-sref</a>
+
+        </div>  
+
+         
+         <script src="app.js"></script>
+         <Script src="router.js"></Script>
+         <script src="myController.js"></script>
+</body>  
+</html>  
+
+ 
+ 
